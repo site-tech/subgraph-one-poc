@@ -5,14 +5,13 @@ package graph
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/site-tech/subgraph-one-poc/graph/generated"
 	"github.com/site-tech/subgraph-one-poc/graph/model"
 )
 
 func (r *queryResolver) TopProducts(ctx context.Context, first *int) ([]*model.Product, error) {
-	panic(fmt.Errorf("not implemented"))
+	return hats, nil
 }
 
 // Query returns generated.QueryResolver implementation.

@@ -11,7 +11,7 @@ import (
 	"github.com/site-tech/subgraph-one-poc/graph/generated"
 )
 
-const defaultPort = "8081"
+const defaultPort = "8080"
 
 func main() {
 	port := os.Getenv("PORT")

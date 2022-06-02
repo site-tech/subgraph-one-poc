@@ -5,22 +5,34 @@ package graph
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/site-tech/subgraph-one-poc/graph/generated"
 	"github.com/site-tech/subgraph-one-poc/graph/model"
 )
 
 func (r *entityResolver) FindManufacturerByID(ctx context.Context, id string) (*model.Manufacturer, error) {
-	panic(fmt.Errorf("not implemented"))
+	return &model.Manufacturer{
+		ID:   id,
+		Name: "Millinery " + id,
+	}, nil
 }
 
 func (r *entityResolver) FindProductByManufacturerIDAndID(ctx context.Context, manufacturerID string, id string) (*model.Product, error) {
-	panic(fmt.Errorf("not implemented"))
+	for _, hat := range hats {
+		if hat.ID == id && hat.Manufacturer.ID == manufacturerID {
+			return hat, nil
+		}
+	}
+	return nil, nil
 }
 
 func (r *entityResolver) FindProductByUpc(ctx context.Context, upc string) (*model.Product, error) {
-	panic(fmt.Errorf("not implemented"))
+	for _, hat := range hats {
+		if hat.Upc == upc {
+			return hat, nil
+		}
+	}
+	return nil, nil
 }
 
 // Entity returns generated.EntityResolver implementation.
